@@ -1,0 +1,108 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "location": {
+            "value": "westeurope"
+        },
+        "networkInterfaceName": {
+            "value": "linuxvm1485"
+        },
+        "networkSecurityGroupName": {
+            "value": "LinuxVM1-nsg"
+        },
+        "networkSecurityGroupRules": {
+            "value": [
+                {
+                    "name": "SSH",
+                    "properties": {
+                        "priority": 300,
+                        "protocol": "TCP",
+                        "access": "Allow",
+                        "direction": "Inbound",
+                        "sourceAddressPrefix": "*",
+                        "sourcePortRange": "*",
+                        "destinationAddressPrefix": "*",
+                        "destinationPortRange": "22"
+                    }
+                }
+            ]
+        },
+        "subnetName": {
+            "value": "CompanyVNet-subnet1"
+        },
+        "virtualNetworkId": {
+            "value": "/subscriptions/23ea3387-8643-4acd-abcd-0dd7f5755d73/resourceGroups/rg_VNewtowrk/providers/Microsoft.Network/virtualNetworks/CompanyVNet"
+        },
+        "publicIpAddressName": {
+            "value": "LinuxVM1-ip"
+        },
+        "publicIpAddressType": {
+            "value": "Dynamic"
+        },
+        "publicIpAddressSku": {
+            "value": "Basic"
+        },
+        "virtualMachineName": {
+            "value": "LinuxVM1"
+        },
+        "virtualMachineRG": {
+            "value": "rg_Linux_infra"
+        },
+        "osDiskType": {
+            "value": "StandardSSD_LRS"
+        },
+        "dataDisks": {
+            "value": [
+                {
+                    "lun": 0,
+                    "createOption": "attach",
+                    "caching": "None",
+                    "writeAcceleratorEnabled": false,
+                    "id": null,
+                    "name": "LinuxVM1_DataDisk_0",
+                    "storageAccountType": null,
+                    "diskSizeGB": null,
+                    "diskEncryptionSet": {
+                        "id": null
+                    }
+                }
+            ]
+        },
+        "dataDiskResources": {
+            "value": [
+                {
+                    "name": "LinuxVM1_DataDisk_0",
+                    "sku": "Premium_LRS",
+                    "properties": {
+                        "diskSizeGB": 32,
+                        "creationData": {
+                            "createOption": "empty"
+                        }
+                    }
+                }
+            ]
+        },
+        "virtualMachineSize": {
+            "value": "Standard_B1ms"
+        },
+        "adminUsername": {
+            "value": "admincici"
+        },
+        "adminPublicKey": {
+            "value": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDfRNULBwgbWLUlxyCI9LqFrA++KcwtLKSOcwn2FSzps0dM7VIFk5eu3ddp75gEElBpnHSSj9D9PSEJ9Mc7CWipck19abRZHWdgPe6eaawelYQMD8b6GIoS90Onrj8FIqlTDIBXzoxx33CYSjGjHGaoxR1gu9icmJK4buzirAG5tP2LpZm9gf0TjHV4vEsfWoaVdAW8BqbpmvVUFQB8k27zq89Je8W94PXyii7cjQL4YvIXogm+E8ojz8MNEdEw0vPYKjG0/2pqj3GUi6J09HwQxv2IKbcdlDIP/t6Lxw5Px84zwbPARvPzbfDFTchmCv+mVaThjqosEpk5q4Nqm3Sx vparipovic@PD-VPARIPOVIC"
+        },
+        "diagnosticsStorageAccountName": {
+            "value": "rglinuxinfradiag"
+        },
+        "diagnosticsStorageAccountId": {
+            "value": "Microsoft.Storage/storageAccounts/rglinuxinfradiag"
+        },
+        "diagnosticsStorageAccountType": {
+            "value": "Standard_LRS"
+        },
+        "diagnosticsStorageAccountKind": {
+            "value": "Storage"
+        }
+    }
+}
